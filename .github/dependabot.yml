@@ -19,6 +19,12 @@
 # ---------------------------------------------------------------------------
 version: 2
 registries:
+  # Hep find updates for non Maven Central dependencies
+  maven-xwiki-releases:
+    type: maven-repository
+    url: https://maven.xwiki.org/releases
+    username: "void"
+    password: "void"
   # Required to resolve xwiki-common SNAPSHOT parent pom
   maven-xwiki-snapshots:
     type: maven-repository
@@ -29,6 +35,7 @@ updates:
   - package-ecosystem: "maven"
     directory: "/"
     registries:
+      - maven-xwiki-releases
       - maven-xwiki-snapshots
     schedule:
       interval: "weekly"
